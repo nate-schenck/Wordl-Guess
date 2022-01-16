@@ -1,0 +1,18 @@
+.submitButton {
+  width: 120px;
+  height: 60px;
+  font-size: 24px;
+  font-family: Bahnschrift, Arial, sans-serif;
+  background-color: #e0a1ff;
+  border-radius: 7px;
+  margin: 20px auto 5px auto;
+}
+
+.typing-area {
+  margin: 5px auto;
+}
+
+.submission {
+  display: flex;
+  flex-direction: column;
+}

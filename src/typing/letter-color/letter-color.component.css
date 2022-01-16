@@ -1,0 +1,32 @@
+.no-modifier {
+  width: 20px;
+  height: 20px;
+  background-color: #a6a6a6;
+  border-radius: 3px;
+  margin: 0px 2px;
+  float: left;
+}
+
+.yellow-modifier {
+  width: 20px;
+  height: 20px;
+  background-color: #e8b52a;
+  border-radius: 3px;
+  float: left;
+  margin: 0px 2px;
+}
+
+.green-modifier {
+  width: 20px;
+  height: 20px;
+  background-color: #209e0d;
+  border-radius: 3px;
+  float: left;
+  margin: 0px 2px;
+}
+
+.selected {
+  border: 2px solid #474747;
+  width: 17px;
+  height: 17px;
+}

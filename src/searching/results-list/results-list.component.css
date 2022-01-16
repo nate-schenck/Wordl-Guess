@@ -1,0 +1,16 @@
+.results-list {
+  width: fit-content;
+  margin: 15px auto 0 auto;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 1.5em;
+}
+
+.results-ul {
+  padding: 0;
+  list-style: none;
+}
+
+.results-li {
+  padding: 5px 10px;
+  border: 1px solid black;
+}

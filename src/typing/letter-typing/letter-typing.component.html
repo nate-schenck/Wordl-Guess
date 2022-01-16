@@ -1,0 +1,27 @@
+<div class="letter-typing">
+  <div class="letter">
+    <letter-color class="letter-coloring" [updateBoxColor]="updateColorWrapperLB1" #letterColor1></letter-color>
+    <br/>
+    <letter-box class="typing-box" [moveNextFocus]="focusNextWrapper" (click)="currFocus='letter1';currFocusIndex=letterBoxArray.indexOf('letter1')" [letterBoxName]="letterBoxNameArray[0]" #letter1></letter-box>
+  </div>
+  <div class="letter">
+    <letter-color class="letter-coloring" [updateBoxColor]="updateColorWrapperLB2" #letterColor2></letter-color>
+    <br/>
+    <letter-box class="typing-box" [moveNextFocus]="focusNextWrapper" (click)="currFocus='letter2';currFocusIndex=letterBoxArray.indexOf('letter2')" [letterBoxName]="letterBoxNameArray[1]" #letter2></letter-box>
+  </div>
+  <div class="letter">
+    <letter-color class="letter-coloring" [updateBoxColor]="updateColorWrapperLB3" #letterColor3></letter-color>
+    <br/>
+    <letter-box class="typing-box" [moveNextFocus]="focusNextWrapper" (click)="currFocus='letter3';currFocusIndex=letterBoxArray.indexOf('letter3')" [letterBoxName]="letterBoxNameArray[2]" #letter3></letter-box>
+  </div>
+  <div class="letter">
+    <letter-color class="letter-coloring" [updateBoxColor]="updateColorWrapperLB4" #letterColor4></letter-color>
+    <br/>
+    <letter-box class="typing-box" [moveNextFocus]="focusNextWrapper" (click)="currFocus='letter4';currFocusIndex=letterBoxArray.indexOf('letter4')" [letterBoxName]="letterBoxNameArray[3]" #letter4></letter-box>
+  </div>
+  <div class="letter">
+    <letter-color class="letter-coloring" [updateBoxColor]="updateColorWrapperLB5" #letterColor5></letter-color>
+    <br/>
+    <letter-box class="typing-box" [moveNextFocus]="focusNextWrapper" (click)="currFocus='letter5';currFocusIndex=letterBoxArray.indexOf('letter5')" [letterBoxName]="letterBoxNameArray[4]" #letter5></letter-box>
+  </div>
+</div>

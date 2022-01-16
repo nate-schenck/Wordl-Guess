@@ -1,0 +1,26 @@
+.letter-box {
+  width: 80px;
+  height: 100px;
+  background-color: #a6a6a6;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.letter-box-focused {
+  background-color: #bfbfbf !important;
+}
+
+.letter-input {
+
+}
+
+.letter-display {
+  width: 80px;
+  height: 100px;
+  text-align: center;
+  font-size: 90px;
+  font-family: Bahnschrift, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,3 @@
+<div class="letter-box" [ngStyle]="{'background-color': color}" [ngClass]="{'letter-box-focused': this.isFocused==true}" (mouseover)="isHovering=true" (mouseout)="isHovering=false" [id]="letter_box">
+  <p class="letter-display" id="letter-display">{{this.letterDisplay}}</p>
+</div>
