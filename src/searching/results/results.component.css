@@ -7,3 +7,11 @@
   font-weight: bold;
   color: #ab1d1d;
 }
+
+.loading-text {
+  font-family: Tahoma, Arial, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1em;
+  text-align: center;
+}

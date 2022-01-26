@@ -2,8 +2,8 @@
 <div *ngIf="finalWordString != undefined && finalWordString != ''" class="results">
   <h2 *ngIf="finalWordString.length != 5; else validWord" class="invalid-word">Please enter a whole word.</h2>
   <ng-template class="valid-word" #validWord>
-    {{this.setWordList(this.finalWord)}}
     <h2>Showing results for "{{finalWordString}}"</h2>
-    <results-list  #resultsList></results-list>
+    <results-list #resultsList></results-list>
+    {{this.setWordList(this.finalWord)}}
   </ng-template>
 </div>

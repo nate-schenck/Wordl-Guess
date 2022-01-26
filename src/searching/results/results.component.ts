@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, ViewChild} from "@angular/core";
+import {ChangeDetectorRef, Component, ViewChild} from "@angular/core";
 import {FinalWord} from "../../util/final-word";
 import {ResultsListComponent} from "../results-list/results-list.component";
 import {ResultsService} from "../results-service/results-service";
@@ -19,6 +19,7 @@ export class ResultsComponent {
 
   finalWordString: string | undefined = '';
   finalWord: FinalWord | undefined;
+  prevFinalWord: FinalWord | undefined;
 
   retrieveFinalWordWrapper = (finalWord: FinalWord) => {
     this.retrieveFinalWord(finalWord);
@@ -41,18 +42,25 @@ export class ResultsComponent {
 
   setWordList(finalWord: FinalWord | undefined) {
     if (!finalWord) {
-      console.log("Word error.")
+      console.error("Word error.");
       return;
     }
     if  (!this.resultsList) {
-      console.error('Error with the Results List.')
+      console.error('Error with the Results List.');
       return;
     }
     if  (!this.submissionComp) {
-      console.error('Error with the Submission.')
+      console.error('Error with the Submission.');
       return;
     }
+    if (this.prevFinalWord == finalWord) {
+      return;
+    }
+    this.resultsList.resultsList = [];
     this.resultsService.compileWordList();
+    if (this.resultsService.wordList.length === 0) {
+      return;
+    }
     let wordsList = this.resultsService.wordList;
     if (finalWord.letter1.color == 'green') {
       wordsList = wordsList.filter(w => w.startsWith(finalWord.letter1.letter));
@@ -71,18 +79,23 @@ export class ResultsComponent {
     }
     if (finalWord.letter1.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter1.letter));
+      wordsList = wordsList.filter(w => w[0] != finalWord.letter1.letter);
     }
     if (finalWord.letter2.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter2.letter));
+      wordsList = wordsList.filter(w => w[1] != finalWord.letter2.letter);
     }
     if (finalWord.letter3.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter3.letter));
+      wordsList = wordsList.filter(w => w[2] != finalWord.letter3.letter);
     }
     if (finalWord.letter4.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter4.letter));
+      wordsList = wordsList.filter(w => w[3] != finalWord.letter4.letter);
     }
     if (finalWord.letter5.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter5.letter));
+      wordsList = wordsList.filter(w => w[4] != finalWord.letter5.letter);
     }
     if (finalWord.letter1.color == 'none') {
       wordsList = wordsList.filter(w => !w.includes(finalWord.letter1.letter));
@@ -100,6 +113,7 @@ export class ResultsComponent {
       wordsList = wordsList.filter(w => !w.includes(finalWord.letter5.letter));
     }
     this.resultsList.resultsList = wordsList;
+    this.prevFinalWord = finalWord;
   }
 
 }

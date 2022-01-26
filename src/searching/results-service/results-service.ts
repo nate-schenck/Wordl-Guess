@@ -11,12 +11,13 @@ export class ResultsService {
   constructor(private http: HttpClient) { }
 
   compileWordList() {
-    const wordListFile = this.http.get('/assets/wordlist.txt', {responseType: 'text'}).subscribe(data => {
+    if (this.wordList.length != 0) return;
+    this.http.get('/assets/wordlist.txt', {responseType: 'text'}).subscribe(data => {
       this.wordList = data.split('\n');
+      for (let i = 0; i < this.wordList.length; i++) {
+        this.wordList[i] = this.wordList[i].toUpperCase();
+      }
     });
-    for (let i = 0; i < this.wordList.length; i++) {
-      this.wordList[i] = this.wordList[i].toUpperCase();
-    }
     //const wordFile: string = fs.readFileSync('../../assets/wordlist.txt').toString('utf-8');
     //this.wordList = wordFile.split('\n');
   }
