@@ -12,3 +12,4 @@ This is my first personal project using Angular and TypeScript. I've been playin
 
 ## To-Do
 - Add selection menu to exclude extra letters from past guesses.
+- Add ability to sort the results list by # of vowels, # of consenants, A-Z, Z-A, etc.
