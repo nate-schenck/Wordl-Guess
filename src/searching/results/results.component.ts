@@ -62,56 +62,97 @@ export class ResultsComponent {
       return;
     }
     let wordsList = this.resultsService.wordList;
+    let letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let possibleLetters = {
+      first: {possibilities: [...letterArray]},
+      second: {possibilities: [...letterArray]},
+      third: {possibilities: [...letterArray]},
+      forth: {possibilities: [...letterArray]},
+      fifth: {possibilities: [...letterArray]},
+    };
+    let knownLetters: string[] = [];
+
     if (finalWord.letter1.color == 'green') {
-      wordsList = wordsList.filter(w => w.startsWith(finalWord.letter1.letter));
+      wordsList = wordsList.filter(w => w[0] == finalWord.letter1.letter);
+      knownLetters = knownLetters.concat([finalWord.letter1.letter]);
     }
     if (finalWord.letter2.color == 'green') {
       wordsList = wordsList.filter(w => w[1] == finalWord.letter2.letter);
+      knownLetters = knownLetters.concat([finalWord.letter2.letter]);
     }
     if (finalWord.letter3.color == 'green') {
       wordsList = wordsList.filter(w => w[2] == finalWord.letter3.letter);
+      knownLetters = knownLetters.concat([finalWord.letter3.letter]);
     }
     if (finalWord.letter4.color == 'green') {
       wordsList = wordsList.filter(w => w[3] == finalWord.letter4.letter);
+      knownLetters = knownLetters.concat([finalWord.letter4.letter]);
     }
     if (finalWord.letter5.color == 'green') {
       wordsList = wordsList.filter(w => w[4] == finalWord.letter5.letter);
+      knownLetters = knownLetters.concat([finalWord.letter5.letter]);
     }
     if (finalWord.letter1.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter1.letter));
       wordsList = wordsList.filter(w => w[0] != finalWord.letter1.letter);
+      knownLetters = knownLetters.concat([finalWord.letter1.letter]);
     }
     if (finalWord.letter2.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter2.letter));
       wordsList = wordsList.filter(w => w[1] != finalWord.letter2.letter);
+      knownLetters = knownLetters.concat([finalWord.letter2.letter]);
     }
     if (finalWord.letter3.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter3.letter));
       wordsList = wordsList.filter(w => w[2] != finalWord.letter3.letter);
+      knownLetters = knownLetters.concat([finalWord.letter3.letter]);
     }
     if (finalWord.letter4.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter4.letter));
       wordsList = wordsList.filter(w => w[3] != finalWord.letter4.letter);
+      knownLetters = knownLetters.concat([finalWord.letter4.letter]);
     }
     if (finalWord.letter5.color == 'yellow') {
       wordsList = wordsList.filter(w => w.includes(finalWord.letter5.letter));
       wordsList = wordsList.filter(w => w[4] != finalWord.letter5.letter);
+      knownLetters = knownLetters.concat([finalWord.letter5.letter]);
     }
     if (finalWord.letter1.color == 'none') {
-      wordsList = wordsList.filter(w => !w.includes(finalWord.letter1.letter));
+      if (knownLetters.indexOf(finalWord.letter1.letter) == -1) {
+        wordsList = wordsList.filter(w => !w.includes(finalWord.letter1.letter));
+      }
     }
     if (finalWord.letter2.color == 'none') {
-      wordsList = wordsList.filter(w => !w.includes(finalWord.letter2.letter));
+      if (knownLetters.indexOf(finalWord.letter2.letter) == -1) {
+        wordsList = wordsList.filter(w => !w.includes(finalWord.letter2.letter));
+      }
     }
     if (finalWord.letter3.color == 'none') {
-      wordsList = wordsList.filter(w => !w.includes(finalWord.letter3.letter));
+      if (knownLetters.indexOf(finalWord.letter3.letter) == -1) {
+        wordsList = wordsList.filter(w => !w.includes(finalWord.letter3.letter));
+      }
     }
     if (finalWord.letter4.color == 'none') {
-      wordsList = wordsList.filter(w => !w.includes(finalWord.letter4.letter));
+      if (knownLetters.indexOf(finalWord.letter4.letter) == -1) {
+        wordsList = wordsList.filter(w => !w.includes(finalWord.letter4.letter));
+      }
     }
     if (finalWord.letter5.color == 'none') {
-      wordsList = wordsList.filter(w => !w.includes(finalWord.letter5.letter));
+      if (knownLetters.indexOf(finalWord.letter5.letter) == -1) {
+        wordsList = wordsList.filter(w => !w.includes(finalWord.letter5.letter));
+      }
     }
+    for (let i = 0; i < knownLetters.length - 1; i++) {
+      let isDouble: boolean = knownLetters.includes(knownLetters[i], i + 1);
+      if (isDouble) {
+        for (let w of wordsList) {
+          if (w.indexOf(knownLetters[i]) == w.lastIndexOf(knownLetters[i])) {
+            wordsList = wordsList.filter(word => word != w);
+          }
+        }
+      }
+    }
+
     this.resultsList.resultsList = wordsList;
     this.prevFinalWord = finalWord;
   }
