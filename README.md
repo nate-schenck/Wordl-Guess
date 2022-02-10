@@ -1,27 +1,14 @@
 # WordlGuess
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+This is my first personal project using Angular and TypeScript. I've been playing the viral game Wordle often and thought it'd be fun to create an app that would give a list of possible words to guess next based on your last guessed word and its result.
 
-## Development server
+## Screenshots
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Landing Screen
+![image](https://user-images.githubusercontent.com/6761055/153337521-6739e257-6b16-447d-9960-89902c9f8124.png)
 
-## Code scaffolding
+### After Results Generated
+![image](https://user-images.githubusercontent.com/6761055/153337566-0bd3534c-047c-4af3-9de3-0f49bfcbe9f4.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## To-Do
+- Add selection menu to exclude extra letters from past guesses.
